@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace lab2
 {
@@ -19,10 +19,11 @@ namespace lab2
                 Console.WriteLine("1.- Agregar Cancion ");
                 Console.WriteLine("2.- Ver Canciones");
                 Console.WriteLine("3.- Salir del Programa");
+                Console.WriteLine("4.- Ver Canciones por Criterio");
                 funcion = Convert.ToInt32(Console.ReadLine());
 
 
-                if (funcion == 1 || funcion == 2 || funcion == 3)
+                if (funcion == 1 || funcion == 2 || funcion == 3 || funcion == 4)
                 {
                     if (funcion == 1)
                     {
@@ -49,6 +50,23 @@ namespace lab2
                     else if (funcion == 3)
                     {
                         Console.WriteLine("Cerrando programa... Hasta la proxima!");
+                    }
+                    else if (funcion == 4)
+                    {
+                        
+                       
+                        Console.WriteLine("Ingrese criterio: ");
+                        string criterio = Console.ReadLine();
+                        Console.WriteLine("Ingrese valor del criterio: ");
+                        string valor = Console.ReadLine();
+
+                        List<Cancion> listaquecumple = listadecanciones.CancionesPorCriterio(criterio, valor);
+
+                        for (int a = 0; a < listaquecumple.Count ; a ++)
+                        {
+                            Console.WriteLine(listaquecumple[a].Informacion());
+                        }
+
                     }
                 }
                 else
