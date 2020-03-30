@@ -44,7 +44,7 @@ namespace lab2
         public List<Cancion> CancionesPorCriterio(String criterio, String valor)
         {
             List<Cancion> cumple = new List<Cancion>();
-            if (criterio == "genero" || criterio == "artista" || criterio == "album" || criterio == "cancion")
+            if (criterio == "genero" || criterio == "artista" || criterio == "album" || criterio == "nombre")
             {
                 for (int k = 0; k < listacanciones.Count(); k++)
                 {
