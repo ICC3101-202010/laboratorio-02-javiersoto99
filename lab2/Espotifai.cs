@@ -7,6 +7,7 @@ namespace lab2
     public class Espotifai
     {
         List<Cancion> listacanciones = new List<Cancion>();
+        List<Playlist> listaplaylist2 = new List<Playlist>();
 
         public Espotifai()
         {
@@ -46,60 +47,70 @@ namespace lab2
             List<Cancion> cumple = new List<Cancion>();
             if (criterio == "genero" || criterio == "artista" || criterio == "album" || criterio == "nombre")
             {
-                for (int k = 0; k < listacanciones.Count(); k++)
+                if (criterio == "genero")
                 {
-                    if (criterio == "genero")
+                    for (int k = 0; k < listacanciones.Count(); k++)
                     {
                         if (valor == listacanciones[k].Genero)
                         {
                             cumple.Add(listacanciones[k]);
                             return cumple;
                         }
-                        else
-                        {
-                            Console.WriteLine("No se han encontrado canciones con el valor solicitado");
-                        }
                     }
-                    else if(criterio == "album")
+                        
+
+                }
+                else if (criterio == "album")
+                {
+                    for (int k = 0; k < listacanciones.Count(); k++)
                     {
                         if (valor == listacanciones[k].Album)
                         {
                             cumple.Add(listacanciones[k]);
                             return cumple;
                         }
-                        else
-                        {
-                            Console.WriteLine("No se han encontrado canciones con el valor solicitado");
-                        }
                     }
-                    else if(criterio == "artista")
-                    {
-                        if(valor == listacanciones[k].Artista)
-                        {
-                            cumple.Add(listacanciones[k]);
-                            return cumple;
-                        }
-                        else
-                        {
-                            Console.WriteLine("No se han encontrado canciones con el valor solicitado");
-                        }
-                    }
-                    else if (criterio == "nombre")
-                    {
-                        if(valor == listacanciones[k].Nombre)
-                        {
-                            cumple.Add(listacanciones[k]);
-                            return cumple;
 
-                        }
-                        else
-                        {
-                            Console.WriteLine("No se han encontrado canciones con el valor solicitado");
-                            return cumple;
-                        }
-                    }
+                        
 
                 }
+                else if (criterio == "artista")
+                {
+                    for (int k = 0; k < listacanciones.Count(); k++)
+                    {
+                        if (valor == listacanciones[k].Artista)
+                        {
+                            cumple.Add(listacanciones[k]);
+                            return cumple;
+                        }
+                    }
+
+                        
+
+                }
+                else if (criterio == "nombre")
+                {
+                    for (int k = 0; k < listacanciones.Count(); k++)
+                    {
+                        if (valor == listacanciones[k].Nombre)
+                        {
+                            cumple.Add(listacanciones[k]);
+                            return cumple;
+
+                        }
+                    }
+                                     
+
+                }
+
+                if (cumple.Count == 0)
+                {
+                    Console.WriteLine("No se han encontrado canciones con el valor solicitado");
+                    return cumple;
+                }
+
+
+
             }
             else
             {
@@ -108,15 +119,46 @@ namespace lab2
             }
             return cumple;
 
-            
-            
-            
-            
-                
-             
+
+
         }
 
+        public bool GenerarPlaylist(String criterioPlay, String valorCriterioPlay, String nombrePlay)
+        {
+            var playlist = new Playlist(nombrePlay);
+            
+            foreach(Playlist b in listaplaylist2)
+            {
+                if(b.Nombreplaylist == nombrePlay)
+                {
+                    Console.WriteLine("Ya tiene una Playlist con el mismo nombre");
+                    return false;
+                }
+            }
+            foreach(Cancion x in CancionesPorCriterio(criterioPlay, valorCriterioPlay ))
+            {
+                playlist.listaplaylist.Add(x);
 
+            }
+            listaplaylist2.Add(playlist);
+            return true;
+
+            
+
+
+            
+        }
+
+        public String VerMisPlaylists()
+        {
+            for(int a = 0; a < listaplaylist2.Count; a++)
+            {
+                listaplaylist2[a].Informacion();
+                
+
+            }
+            return ".";
+        }
 
     }
 }

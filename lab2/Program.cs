@@ -20,10 +20,12 @@ namespace lab2
                 Console.WriteLine("2.- Ver Canciones");
                 Console.WriteLine("3.- Salir del Programa");
                 Console.WriteLine("4.- Ver Canciones por Criterio");
+                Console.WriteLine("5.- Generar Playlist");
+                Console.WriteLine("6.- Ver Playlist");
                 funcion = Convert.ToInt32(Console.ReadLine());
 
 
-                if (funcion == 1 || funcion == 2 || funcion == 3 || funcion == 4)
+                if (funcion == 1 || funcion == 2 || funcion == 3 || funcion == 4 || funcion == 5 || funcion == 6)
                 {
                     if (funcion == 1)
                     {
@@ -67,6 +69,21 @@ namespace lab2
                             Console.WriteLine(listaquecumple[a].Informacion());
                         }
 
+                    }
+                    else if (funcion == 5)
+                    {
+                        Console.WriteLine("Ingrese Criterio para la Playlist: ");
+                        string criterioplaylist = Console.ReadLine();
+                        Console.WriteLine("Ingrese el Valor del Criterio para la Playlist: ");
+                        string valorcriterioplaylist = Console.ReadLine();
+                        Console.WriteLine("Ingrese nombre para la Playlist: ");
+                        string nombreplaylist = Console.ReadLine();
+
+                        listadecanciones.GenerarPlaylist(criterioplaylist, valorcriterioplaylist, nombreplaylist);
+                    }
+                    else if (funcion == 6)
+                    {
+                        listadecanciones.VerMisPlaylists();
                     }
                 }
                 else
