@@ -54,9 +54,10 @@ namespace lab2
                         if (valor == listacanciones[k].Genero)
                         {
                             cumple.Add(listacanciones[k]);
-                            return cumple;
+                            
                         }
                     }
+                    return cumple;
                         
 
                 }
@@ -67,9 +68,11 @@ namespace lab2
                         if (valor == listacanciones[k].Album)
                         {
                             cumple.Add(listacanciones[k]);
-                            return cumple;
+                            
                         }
                     }
+                    return cumple;
+
 
                         
 
@@ -81,9 +84,10 @@ namespace lab2
                         if (valor == listacanciones[k].Artista)
                         {
                             cumple.Add(listacanciones[k]);
-                            return cumple;
+                            
                         }
                     }
+                    return cumple;
 
                         
 
@@ -95,10 +99,11 @@ namespace lab2
                         if (valor == listacanciones[k].Nombre)
                         {
                             cumple.Add(listacanciones[k]);
-                            return cumple;
+                            
 
                         }
                     }
+                    return cumple;
                                      
 
                 }
