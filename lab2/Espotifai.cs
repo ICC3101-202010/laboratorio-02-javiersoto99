@@ -57,7 +57,16 @@ namespace lab2
                             
                         }
                     }
-                    return cumple;
+                    if (cumple.Count == 0)
+                    {
+                        Console.WriteLine("No se han encontrado canciones con el valor solicitado");
+
+                    }
+                    else
+                    {
+                        return cumple;
+                    }
+                    
                         
 
                 }
@@ -71,10 +80,17 @@ namespace lab2
                             
                         }
                     }
-                    return cumple;
+                    if (cumple.Count == 0)
+                    {
+                        Console.WriteLine("No se han encontrado canciones con el valor solicitado");
+
+                    }
+                    else
+                    {
+                        return cumple;
+                    }
 
 
-                        
 
                 }
                 else if (criterio == "artista")
@@ -87,9 +103,17 @@ namespace lab2
                             
                         }
                     }
-                    return cumple;
+                    if (cumple.Count == 0)
+                    {
+                        Console.WriteLine("No se han encontrado canciones con el valor solicitado");
 
-                        
+                    }
+                    else
+                    {
+                        return cumple;
+                    }
+
+
 
                 }
                 else if (criterio == "nombre")
@@ -103,16 +127,21 @@ namespace lab2
 
                         }
                     }
-                    return cumple;
-                                     
+                    if (cumple.Count == 0)
+                    {
+                        Console.WriteLine("No se han encontrado canciones con el valor solicitado");
+
+                    }
+                    else
+                    {
+                        return cumple;
+                    }
+
 
                 }
 
-                if (cumple.Count == 0)
-                {
-                    Console.WriteLine("No se han encontrado canciones con el valor solicitado");
-                    return cumple;
-                }
+                
+                
 
 
 
